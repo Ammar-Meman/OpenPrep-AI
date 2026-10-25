@@ -236,7 +236,32 @@ examCountdownPreferences: {
     targetScore: null,
     milestones: [],
   },
-},    dailyAiUsageCount: {
+},
+    telegramChatId: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    telegramUsername: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    telegramNotificationsEnabled: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
+    telegramPairingToken: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    telegramPairingTokenExpires: {
+      type: DataTypes.DATE,
+      allowNull: true,
+    },
+    telegramDailyDigestHour: {
+      type: DataTypes.INTEGER,
+      defaultValue: 8,
+    },
+    dailyAiUsageCount: {
       type: DataTypes.INTEGER,
       defaultValue: 0,
     },

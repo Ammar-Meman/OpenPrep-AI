@@ -137,9 +137,11 @@ const { initNotificationCron } = require('./services/notificationService');
 const { initDifficultyCalibratorCron } = require('./services/difficultyCalibrator');
 const { initNightlyBadgeEvaluatorCron } = require('./services/badgeEvaluationService');
 const { initNotificationScheduler } = require('./services/notificationSchedulerService');
+const { initDailyTelegramDigestCron } = require('./jobs/dailyTelegramDigestJob');
 initDifficultyCalibratorCron();
 initNightlyBadgeEvaluatorCron();
 initNotificationScheduler();
+initDailyTelegramDigestCron();
 
 const cron = require('node-cron');
 const calendarService = require('./services/calendarService');
@@ -519,6 +521,7 @@ app.use('/api/folders', folderRoutes);
 app.use('/api/badges', badgeRoutes);
 app.use('/api/bounties', bountyRoutes);
 app.use('/api/code', codeRoutes);
+app.use('/api/telegram', require('./routes/telegramRoutes'));
 
 const leaderboardRoutes = require('./routes/leaderboardRoutes');
 app.use('/api/leaderboard', leaderboardRoutes);app.get('/user/badges', protect, require('./controllers/badgeController').getUserBadges);

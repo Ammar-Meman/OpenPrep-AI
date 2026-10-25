@@ -155,6 +155,7 @@ initModeratorAuditLog(sequelize);
 initSponsor(sequelize);
 
 // User associations
+if (!User.associations || !User.associations.bounties) {
 User.hasMany(Exam, { foreignKey: 'user', onDelete: 'CASCADE' });
 User.hasMany(Subject, { foreignKey: 'user', onDelete: 'CASCADE' });
 User.hasMany(Topic, { foreignKey: 'user', onDelete: 'CASCADE' });
@@ -453,6 +454,7 @@ BountyAnswer.belongsTo(User, { foreignKey: 'userId', as: 'author' });
 // UserSession associations
 User.hasMany(UserSession, { foreignKey: 'userId', as: 'sessions', onDelete: 'CASCADE' });
 UserSession.belongsTo(User, { foreignKey: 'userId', as: 'user' });
+}
 
 module.exports = {
   sequelize,

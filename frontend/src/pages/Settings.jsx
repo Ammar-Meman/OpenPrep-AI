@@ -26,6 +26,7 @@ import VintagePaper from '../components/dashboard/VintagePaper';
 import ThemeToggle from '../components/ThemeToggle';
 import TwoWayCalendarSyncManager from '../components/calendar/TwoWayCalendarSyncManager';
 import MicroLearningSettings from '../components/settings/MicroLearningSettings';
+import TelegramSettingsCard from '../components/settings/TelegramSettingsCard';
 import API from '../services/api';
 
 import {
@@ -747,6 +748,11 @@ const Settings = () => {
               </div>
             </div>
           </div>
+        </VintagePaper>
+
+        {/* --- TELEGRAM STUDY BOT INTEGRATION --- */}
+        <VintagePaper className="border-t-4 border-t-sky-500">
+          <TelegramSettingsCard />
         </VintagePaper>
 
         {/* --- TWO-WAY CALENDAR SYNCHRONIZATION HUB --- */}
